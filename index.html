@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>War Era Order Book</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="header">
+      <div>
+        <h1>War Era Order Book</h1>
+        <p class="subtitle">Live order book viewer for War Era trading items</p>
+      </div>
+      <div class="status" id="status" aria-live="polite"></div>
+    </header>
+
+    <section class="controls panel">
+      <div class="control-group api-group">
+        <label for="apiKey">War Era API key</label>
+        <div class="input-row">
+          <input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your API key">
+          <button id="clearKeyBtn" class="secondary" type="button">Clear</button>
+        </div>
+        <small>Your API key is used directly by your browser and is not sent to this Vercel site.</small>
+      </div>
+
+      <div class="control-group">
+        <label for="itemSelect">Item</label>
+        <select id="itemSelect"></select>
+      </div>
+
+      <div class="button-group">
+        <button id="refreshBtn" class="primary" type="button">Refresh</button>
+        <button id="pngBtn" class="secondary" type="button">Export PNG</button>
+      </div>
+    </section>
+
+    <section class="panel book-panel">
+      <div class="book-header">
+        <div>
+          <h2 id="bookTitle">Order Book</h2>
+          <div id="bookMeta" class="meta">No data loaded</div>
+        </div>
+        <div class="cache-badge" id="cacheBadge" hidden>Cached</div>
+      </div>
+
+      <div id="error" class="error" hidden></div>
+      <div id="empty" class="empty">Enter an API key and select an item to load the order book.</div>
+      <div id="chartViewport" class="chart-viewport" hidden>
+        <div id="chart"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
